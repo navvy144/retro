@@ -10,8 +10,7 @@ CMD ["/sbin/my_init"]
 # chfn workaround - Known issue within Dockers
 RUN ln -s -f /bin/true /usr/bin/chfn
 
-RUN  echo "Australia/Melbourne" > /etc/timezone && \
-	 dpkg-reconfigure -f noninteractive tzdata
+RUN echo "$TZ" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 #install dependancies
 RUN apt-get update && apt-get install -y wget
