@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y wget
 
 #map array
 VOLUME /mnt
-#VOLUME /var/log
+VOLUME /etc/localtime
 
 #get retrospect
 RUN wget http://download.retrospect.com/software/linux/v1000/Linux_Client_x64_10_0_0_114.tar \
