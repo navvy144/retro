@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Fix the timezone
-  echo "$TZ" > /etc/timezone
-  dpkg-reconfigure -f noninteractive tzdata
+if [[ $(cat /etc/timezone) != $TZ ]] ; then
+echo "$TZ" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+fi
 exit 0
