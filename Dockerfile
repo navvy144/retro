@@ -1,18 +1,18 @@
 FROM phusion/baseimage:0.9.15
-MAINTAINER Lee Oliver "navvy144@gmail.com"
+MAINTAINER Navvy "navvy144@gmail.com"
 ENV REFRESHED_AT 2015-04-04
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
+
+# Add config.sh to execute during container startup
+ADD config.sh /etc/my_init.d/config.sh
+RUN chmod +x /etc/my_init.d/*
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
 # chfn workaround - Known issue within Dockers
 RUN ln -s -f /bin/true /usr/bin/chfn
-
-# Add config.sh to execute during container startup
-ADD config.sh /etc/my_init.d/config.sh
-RUN chmod +x /etc/my_init.d/*
 
 #install dependancies
 RUN apt-get update && apt-get install -y wget
