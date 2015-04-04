@@ -10,7 +10,9 @@ CMD ["/sbin/my_init"]
 # chfn workaround - Known issue within Dockers
 RUN ln -s -f /bin/true /usr/bin/chfn
 
-RUN echo "$TZ" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
+# Add config.sh to execute during container startup
+ADD config.sh /etc/my_init.d/config.sh
+RUN chmod +x /etc/my_init.d/*
 
 #install dependancies
 RUN apt-get update && apt-get install -y wget
