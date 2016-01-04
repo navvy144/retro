@@ -1,6 +1,6 @@
 FROM phusion/baseimage:0.9.15
 MAINTAINER Navvy "navvy144@gmail.com"
-ENV REFRESHED_AT 2015-04-04
+ENV REFRESHED_AT 2016-01-04
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
 
