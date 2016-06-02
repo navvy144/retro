@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y wget
 VOLUME /mnt
 
 #get retrospect
-RUN wget http://download.retrospect.com/software/linux/v1050/Linux_Client_x64_10_5_0_103.tar \
- && tar xvf Linux_Client_x64_10_5_0_103.tar
+RUN wget https://s3.amazonaws.com/download.retrospect.com/software/linux/v1100/Linux_Client_x64_11_0_0_107.tar \
+ && tar xvf Linux_Client_x64_11_0_0_107.tar
 
 #get modified install script
 ADD Retroinstall.sh /tmp/Retroinstall.sh
